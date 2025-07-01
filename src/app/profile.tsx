@@ -1,3 +1,4 @@
+import React from 'react';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import apiService from '../services/apiService';
@@ -80,8 +81,9 @@ export default function ProfilePage() {
       {!loading && profile && edit && (
         <form onSubmit={handleUpdate} className="bg-white p-6 rounded shadow-md w-full max-w-sm">
           <div className="mb-4">
-            <label className="block font-semibold mb-1">Name</label>
+            <label htmlFor="name" className="block font-semibold mb-1">Name</label>
             <input
+              id="name"
               type="text"
               name="name"
               value={form.name}
@@ -91,8 +93,9 @@ export default function ProfilePage() {
             />
           </div>
           <div className="mb-4">
-            <label className="block font-semibold mb-1">Email</label>
+            <label htmlFor="email" className="block font-semibold mb-1">Email</label>
             <input
+              id="email"
               type="email"
               name="email"
               value={form.email}
