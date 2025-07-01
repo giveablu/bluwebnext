@@ -74,7 +74,7 @@ class ApiService {
     try {
       const response = await api.get('/donor-account/home');
       return response.data;
-    } catch (error) {
+    } catch {
       throw new Error('Failed to fetch recipients');
     }
   }
@@ -83,7 +83,7 @@ class ApiService {
     try {
       const response = await api.get('/donor-account/donations');
       return response.data;
-    } catch (error) {
+    } catch {
       throw new Error('Failed to fetch donations');
     }
   }
@@ -92,7 +92,7 @@ class ApiService {
     try {
       const response = await api.get(`/donor-account/donations/${id}`);
       return response.data;
-    } catch (error) {
+    } catch {
       throw new Error('Failed to fetch donation details');
     }
   }
@@ -105,7 +105,7 @@ class ApiService {
         amount: amount
       });
       return response.data;
-    } catch (error) {
+    } catch {
       throw new Error('Failed to create donation');
     }
   }
@@ -115,7 +115,7 @@ class ApiService {
     try {
       const response = await api.get('/donor-account/profile');
       return response.data;
-    } catch (error) {
+    } catch {
       throw new Error('Failed to fetch profile');
     }
   }
@@ -124,7 +124,7 @@ class ApiService {
     try {
       const response = await api.post('/donor-account/profile/update', profileData);
       return response.data;
-    } catch (error) {
+    } catch {
       throw new Error('Failed to update profile');
     }
   }
