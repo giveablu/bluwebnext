@@ -1,3 +1,4 @@
+// Homepage last updated: forced redeploy
 export default function Home() {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '100vh' }}>
