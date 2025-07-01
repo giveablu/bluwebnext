@@ -44,20 +44,22 @@ const SwipeCard = ({ recipient, onSwipeLeft, onSwipeRight, isExiting }) => {
   };
 
   return (
-    <AnimatePresence>
-      <motion.div
-        className="relative w-full max-w-md mx-auto h-[32rem] touch-none"
-        variants={cardVariants}
-        initial="initial"
-        animate={isExiting ? (onSwipeLeft ? "exitLeft" : "exitRight") : controls}
-        exit={isExiting ? (onSwipeLeft ? "exitLeft" : "exitRight") : "initial"}
-        drag="x"
-        dragConstraints={{ left: 0, right: 0 }}
-        dragElastic={1}
-        onDragStart={() => setIsDragging(true)}
-        onDragEnd={handleDragEnd}
-        style={{ x, rotate, opacity }}
-      >
+    <div className="relative w-full max-w-md mx-auto">
+      <AnimatePresence>
+        <motion.div
+          key={recipient.id || recipient.name}
+          className="relative w-full mx-auto h-[32rem] touch-none"
+          variants={cardVariants}
+          initial="initial"
+          animate={isExiting ? (onSwipeLeft ? "exitLeft" : "exitRight") : controls}
+          exit={isExiting ? (onSwipeLeft ? "exitLeft" : "exitRight") : "initial"}
+          drag="x"
+          dragConstraints={{ left: 0, right: 0 }}
+          dragElastic={1}
+          onDragStart={() => setIsDragging(true)}
+          onDragEnd={handleDragEnd}
+          style={{ x, rotate, opacity }}
+        >
         <div className="relative h-full">
           {/* Recipient Image */}
           <div className="absolute inset-0">
@@ -94,12 +96,13 @@ const SwipeCard = ({ recipient, onSwipeLeft, onSwipeRight, isExiting }) => {
           </motion.div>
         </div>
       </motion.div>
+      </AnimatePresence>
 
       {/* Mobile Instructions */}
       <div className="absolute -bottom-12 left-0 right-0 text-center text-sm text-gray-500 dark:text-gray-400">
         Swipe right to donate, left to pass
       </div>
-    </AnimatePresence>
+    </div>
   );
 };
 

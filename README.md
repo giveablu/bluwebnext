@@ -1,36 +1,195 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Blu Charity - Next.js Web Application
 
-## Getting Started
+A modern, responsive web application for the Blu Charity donation platform, built with Next.js 15, TypeScript, and Tailwind CSS.
 
-First, run the development server:
+## 🚀 Features
 
+- **Modern Stack**: Next.js 15 with App Router, TypeScript, and Tailwind CSS
+- **Authentication**: Complete login/registration flow with OTP verification
+- **Donation Interface**: Tinder-like swipe interface for discovering recipients
+- **Profile Management**: User profile editing and donation history
+- **Responsive Design**: Optimized for desktop, tablet, and mobile devices
+- **Type Safety**: Full TypeScript integration with strict type checking
+- **Testing**: Comprehensive Jest test suite with 82.75% coverage
+- **Performance**: Optimized builds with SWC compiler
+
+## 🛠️ Tech Stack
+
+- **Framework**: Next.js 15 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Testing**: Jest + React Testing Library
+- **Animations**: Framer Motion
+- **Deployment**: Vercel
+
+## 📦 Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd bluweb-next
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Set up environment variables**
+   Create a `.env.local` file with:
+   ```env
+   NEXT_PUBLIC_API_URL=http://localhost:8000/api
+   ```
+
+4. **Run the development server**
+   ```bash
+   npm run dev
+   ```
+
+5. **Open your browser**
+   Navigate to [http://localhost:3000](http://localhost:3000)
+
+## 🧪 Testing
+
+### Run Tests
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Run all tests
+npm test
+
+# Run tests with coverage
+npm run test:coverage
+
+# Run tests in watch mode
+npm run test:watch
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Test Coverage
+- **Statements**: 84.93%
+- **Branches**: 51.51%
+- **Functions**: 75.75%
+- **Lines**: 87.42%
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🏗️ Build & Deployment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Development
+```bash
+npm run dev
+```
 
-## Learn More
+### Production Build
+```bash
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+### Production Start
+```bash
+npm start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Linting
+```bash
+npm run lint
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📁 Project Structure
 
-## Deploy on Vercel
+```
+src/
+├── app/                    # Next.js App Router pages
+│   ├── login.tsx          # Login page
+│   ├── register.tsx       # Registration page
+│   ├── donate.tsx         # Donation interface
+│   ├── donations.tsx      # Donation history
+│   ├── profile.tsx        # User profile
+│   └── layout.tsx         # Root layout
+├── components/            # Reusable components
+│   └── SwipeCard.jsx      # Swipe interface component
+├── services/              # API services
+│   └── apiService.js      # API client
+├── types/                 # TypeScript type definitions
+│   └── index.ts           # API and component types
+├── __tests__/             # Test files
+│   ├── app.test.tsx       # Main app flow tests
+│   ├── login.test.tsx     # Login tests
+│   ├── register.test.tsx  # Registration tests
+│   ├── donate.test.tsx    # Donation tests
+│   ├── donations.test.tsx # Donation history tests
+│   └── profile.test.tsx   # Profile tests
+└── config/                # Configuration files
+    └── api.js             # API configuration
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🔧 Configuration
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Jest Configuration
+The project uses Next.js Jest configuration for optimal testing:
+```js
+// jest.config.js
+const nextJest = require('next/jest')
+
+const createJestConfig = nextJest({
+  dir: './',
+})
+
+const customJestConfig = {
+  testEnvironment: 'jsdom',
+  moduleNameMapper: {
+    '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
+    '\\.(jpg|jpeg|png|gif|webp|svg)$': '<rootDir>/__mocks__/fileMock.js',
+  },
+  setupFilesAfterEnv: ['@testing-library/jest-dom'],
+  testPathIgnorePatterns: ['/node_modules/', '/.next/'],
+}
+
+module.exports = createJestConfig(customJestConfig)
+```
+
+### Jest Configuration
+Jest is configured to work with Next.js and TypeScript:
+- Uses Next.js Jest transformer for optimal compatibility
+- Mocks Next.js router and static assets
+- Provides comprehensive test coverage
+- No Babel configuration required
+
+## 🚀 Deployment
+
+### Vercel (Recommended)
+1. Connect your GitHub repository to Vercel
+2. Configure environment variables in Vercel dashboard
+3. Deploy automatically on push to main branch
+
+### Manual Deployment
+```bash
+npm run build
+npm start
+```
+
+## 🔒 Environment Variables
+
+| Variable | Description | Required |
+|----------|-------------|----------|
+| `NEXT_PUBLIC_API_URL` | Backend API URL | Yes |
+
+## 📱 Browser Support
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests for new functionality
+5. Ensure all tests pass
+6. Submit a pull request
+
+## 📄 License
+
+This project is part of the Blu Charity platform. See the main project license for details.
+
+## 🆘 Support
+
+For support and questions, please refer to the main project documentation or contact the development team.

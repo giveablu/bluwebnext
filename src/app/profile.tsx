@@ -2,13 +2,14 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import apiService from '../services/apiService';
+import { User } from '../types';
 
 export default function ProfilePage() {
-  const [profile, setProfile] = useState(null);
+  const [profile, setProfile] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [edit, setEdit] = useState(false);
-  const [form, setForm] = useState({ name: '', email: '' });
+  const [form, setForm] = useState<{ name: string; email: string }>({ name: '', email: '' });
   const [success, setSuccess] = useState(false);
 
   useEffect(() => {
@@ -23,7 +24,7 @@ export default function ProfilePage() {
           email: data.data?.email || '',
         });
       } catch (err) {
-        setError(err.message);
+        setError(err instanceof Error ? err.message : 'An error occurred');
       } finally {
         setLoading(false);
       }
@@ -31,23 +32,23 @@ export default function ProfilePage() {
     fetchProfile();
   }, []);
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleUpdate = async (e) => {
+  const handleUpdate = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
     setError('');
     setSuccess(false);
     try {
       await apiService.updateProfile(form);
-      setProfile({ ...profile, ...form });
+      setProfile(profile ? { ...profile, ...form } : { ...form } as User);
       setSuccess(true);
       setEdit(false);
       setTimeout(() => setSuccess(false), 2000);
     } catch (err) {
-      setError(err.message);
+      setError(err instanceof Error ? err.message : 'An error occurred');
     } finally {
       setLoading(false);
     }

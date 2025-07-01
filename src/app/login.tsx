@@ -11,16 +11,16 @@ export default function LoginPage() {
   const [error, setError] = useState('');
   const router = useRouter();
 
-  const handleLogin = async (e) => {
+  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
     setError('');
     try {
       await apiService.signIn(email, password);
       router.push('/');
-    } catch (err) {
-      setError(err.message);
-    } finally {
+          } catch (err) {
+        setError(err instanceof Error ? err.message : 'An error occurred');
+      } finally {
       setLoading(false);
     }
   };

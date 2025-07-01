@@ -1,7 +1,6 @@
 import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import LoginPage from '../app/login';
-import { useRouter } from 'next/navigation';
 
 jest.mock('../services/apiService', () => ({ signIn: jest.fn(() => Promise.resolve()) }));
 jest.mock('next/navigation', () => ({ useRouter: () => ({ push: jest.fn() }) }));

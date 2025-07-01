@@ -13,7 +13,7 @@ export default function RegisterPage() {
   const [success, setSuccess] = useState(false);
   const router = useRouter();
 
-  const handleRegister = async (e) => {
+  const handleRegister = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
     setError('');
@@ -22,9 +22,9 @@ export default function RegisterPage() {
       await apiService.register({ email, password, name });
       setSuccess(true);
       setTimeout(() => router.push('/login'), 1500);
-    } catch (err) {
-      setError(err.message);
-    } finally {
+          } catch (err) {
+        setError(err instanceof Error ? err.message : 'An error occurred');
+      } finally {
       setLoading(false);
     }
   };

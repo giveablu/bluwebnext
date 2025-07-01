@@ -3,9 +3,10 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import apiService from '../services/apiService';
 import SwipeCard from '../components/SwipeCard';
+import { Recipient } from '../types';
 
 export default function DonatePage() {
-  const [recipients, setRecipients] = useState([]);
+  const [recipients, setRecipients] = useState<Recipient[]>([]);
   const [current, setCurrent] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -20,7 +21,7 @@ export default function DonatePage() {
         const data = await apiService.getRecipients();
         setRecipients(data.data || []);
       } catch (err) {
-        setError(err.message);
+        setError(err instanceof Error ? err.message : 'An error occurred');
       } finally {
         setLoading(false);
       }
@@ -38,7 +39,7 @@ export default function DonatePage() {
       setTimeout(() => setDonationSuccess(false), 2000);
       setCurrent((prev) => prev + 1);
     } catch (err) {
-      setError(err.message);
+      setError(err instanceof Error ? err.message : 'An error occurred');
     } finally {
       setDonating(false);
     }

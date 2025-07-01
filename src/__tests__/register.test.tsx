@@ -1,7 +1,6 @@
 import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import RegisterPage from '../app/register';
-import { useRouter } from 'next/navigation';
 jest.mock('../services/apiService', () => ({ register: jest.fn(() => Promise.resolve()) }));
 jest.mock('next/navigation', () => ({ useRouter: () => ({ push: jest.fn() }) }));
 describe('RegisterPage', () => {
