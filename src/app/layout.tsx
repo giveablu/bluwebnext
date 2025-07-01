@@ -24,8 +24,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
+      <body className="bg-black text-white font-sans">
+        <header className="p-4 flex justify-between items-center">
+          <div className="text-2xl font-bold">Blu</div>
+          <nav className="space-x-4">
+            <a href="/login">Login</a>
+            <a href="/register">Register</a>
+            <a href="/donate">Donate</a>
+            <a href="/donations">Donation History</a>
+          </nav>
+        </header>
+        <main className="p-4">{children}</main>
       </body>
     </html>
   );
