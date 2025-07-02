@@ -1,9 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Blocksy Theme CSS Variables */
 :root {
+  --theme-icon-size: 15px;
+  --theme-icon-color: #1a1a1a;
+  --theme-icon-hover-color: #e74c3c;
+  --theme-icon-transition: fill 0.12s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  --theme-text-color: #1a1a1a;
+  --theme-link-initial-color: #1a1a1a;
+  --theme-link-hover-color: #e74c3c;
+  --theme-palette-color-1: #e74c3c;
+  --theme-palette-color-2: #c0392b;
+  --theme-palette-color-4: #ffffff;
+  --theme-border-color: #e5e7eb;
+  --theme-border-radius: 4px;
+  --theme-transition: all 0.12s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  
   /* WordPress Theme Colors - extracted from your site */
-  --theme-palette-color-1: #3a5da5;
-  --theme-palette-color-2: #24417C;
   --theme-palette-color-3: #355575;
-  --theme-palette-color-4: #102136;
   --theme-palette-color-5: #E7EBEE;
   --theme-palette-color-6: #F3F5F7;
   --theme-palette-color-7: #F7FAFD;
@@ -63,4 +79,104 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+/* Global Icon Styles - Exact from Blocksy */
+.ct-icon,
+.ct-icon-container svg {
+  width: var(--theme-icon-size, 15px);
+  height: var(--theme-icon-size, 15px);
+  fill: var(--theme-icon-color, var(--theme-text-color));
+  transition: var(--theme-icon-transition, fill 0.12s cubic-bezier(0.455, 0.03, 0.515, 0.955));
+}
+
+.ct-icon,
+.ct-icon-container {
+  position: relative;
+}
+
+.ct-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ct-icon-container.ct-left {
+  margin-inline-end: 0.5em;
+}
+
+.ct-icon-container.ct-right {
+  margin-inline-start: 0.5em;
+}
+
+/* Icon hover effects */
+.ct-icon:hover,
+.ct-icon-container:hover svg {
+  fill: var(--theme-icon-hover-color, var(--theme-palette-color-2));
+}
+
+/* Button icon styles */
+.button .ct-icon,
+.ct-button .ct-icon,
+[type=submit] .ct-icon,
+.wp-element-button .ct-icon {
+  --theme-icon-color: currentColor;
+  --theme-icon-hover-color: currentColor;
+}
+
+/* Header icon styles */
+.ct-header-trigger .ct-icon {
+  transition: none;
+}
+
+.ct-header-trigger .ct-icon rect {
+  transform-origin: 50% 50%;
+  transition: all 0.12s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+
+/* Social media icon styles */
+.ct-social-box a:hover .ct-icon,
+.ct-social-box a:hover svg {
+  fill: var(--theme-icon-hover-color, var(--theme-palette-color-2));
+}
+
+/* Contact info icon styles */
+.ct-contact-info .ct-icon,
+.ct-contact-info svg {
+  margin-inline-end: 0.5em;
+}
+
+/* Force icon sizing on all SVG elements */
+svg {
+  width: var(--theme-icon-size, 15px);
+  height: var(--theme-icon-size, 15px);
+}
+
+/* Override for larger icons when needed */
+.icon-large svg {
+  width: 20px;
+  height: 20px;
+}
+
+.icon-xl svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Ensure proper icon alignment */
+.icon-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+/* Button with icon styles */
+.btn-with-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.btn-with-icon svg {
+  flex-shrink: 0;
 }
