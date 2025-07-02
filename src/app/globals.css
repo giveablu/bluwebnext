@@ -1,13 +1,37 @@
 :root {
+  /* WordPress Theme Colors - extracted from your site */
+  --theme-palette-color-1: #3a5da5;
+  --theme-palette-color-2: #24417C;
+  --theme-palette-color-3: #355575;
+  --theme-palette-color-4: #102136;
+  --theme-palette-color-5: #E7EBEE;
+  --theme-palette-color-6: #F3F5F7;
+  --theme-palette-color-7: #F7FAFD;
+  --theme-palette-color-8: #ffffff;
+  --theme-palette-color-9: #FFE8DA;
+  
+  /* Blu Brand Colors */
+  --blu-primary: #3a5da5;
+  --blu-secondary: #24417C;
+  --blu-accent: #355575;
+  --blu-dark: #102136;
+  --blu-light: #E7EBEE;
+  --blu-lighter: #F3F5F7;
+  --blu-lightest: #F7FAFD;
+  --blu-white: #ffffff;
+  --blu-warm: #FFE8DA;
+  
+  /* Text Colors */
+  --text-primary: #102136;
+  --text-secondary: #355575;
+  --text-muted: #6B7280;
+  --text-light: #9CA3AF;
+  
+  /* Background Colors */
   --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --foreground: #102136;
+  --background-secondary: #F7FAFD;
+  --background-accent: #E7EBEE;
 }
 
 html,
