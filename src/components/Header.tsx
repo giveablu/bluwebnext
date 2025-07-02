@@ -7,51 +7,72 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="bg-white shadow-sm border-b border-[var(--blu-light)]">
+    <header className="bg-white shadow-sm border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="flex items-center">
-            <Link href="/" className="flex items-center space-x-2">
-              <span className="text-2xl font-bold text-[var(--blu-primary)]">blu</span>
-              <span className="text-sm text-[var(--text-secondary)]">Better Lives United</span>
+          <div className="flex-shrink-0">
+            <Link href="/" className="flex items-center">
+              <span className="text-2xl font-bold text-[#1a1a1a]">Better Lives United</span>
             </Link>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            <Link href="/" className="text-[var(--text-primary)] hover:text-[var(--blu-primary)] px-3 py-2 text-sm font-medium transition-colors">
+          <nav className="hidden md:flex space-x-8">
+            <Link href="/" className="text-[#1a1a1a] hover:text-[#e74c3c] transition-colors duration-200">
               Home
             </Link>
-            <Link href="/why-blu" className="text-[var(--text-primary)] hover:text-[var(--blu-primary)] px-3 py-2 text-sm font-medium transition-colors">
-              Why Blu
+            <Link href="/donate" className="text-[#1a1a1a] hover:text-[#e74c3c] transition-colors duration-200">
+              Donate
             </Link>
-            <Link href="/roadmap" className="text-[var(--text-primary)] hover:text-[var(--blu-primary)] px-3 py-2 text-sm font-medium transition-colors">
-              Roadmap
+            <Link href="/donations" className="text-[#1a1a1a] hover:text-[#e74c3c] transition-colors duration-200">
+              Donations
             </Link>
-            <Link href="/login" className="bg-[var(--blu-primary)] text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-[var(--blu-secondary)] transition-colors">
-              Download App
+            <Link href="/about" className="text-[#1a1a1a] hover:text-[#e74c3c] transition-colors duration-200">
+              About
             </Link>
-            <a 
-              href="https://x.com/betterlivesunited" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors p-1"
-            >
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-              </svg>
-            </a>
+            <Link href="/contact" className="text-[#1a1a1a] hover:text-[#e74c3c] transition-colors duration-200">
+              Contact
+            </Link>
           </nav>
+
+          {/* CTA Button */}
+          <div className="hidden md:block">
+            <Link 
+              href="/donate"
+              className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-[#e74c3c] hover:bg-[#c0392b] transition-colors duration-200"
+            >
+              <svg 
+                className="w-4 h-4 mr-2" 
+                fill="currentColor" 
+                viewBox="0 0 20 20"
+                style={{ width: '15px', height: '15px' }}
+              >
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+              Donate Now
+            </Link>
+          </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-[var(--text-primary)] hover:text-[var(--blu-primary)] focus:outline-none focus:text-[var(--blu-primary)] transition-colors"
+              className="inline-flex items-center justify-center p-2 rounded-md text-[#1a1a1a] hover:text-[#e74c3c] hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[#e74c3c] transition-colors duration-200"
+              style={{ width: '40px', height: '40px' }}
             >
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              <svg 
+                className="h-6 w-6" 
+                fill="none" 
+                viewBox="0 0 24 24" 
+                stroke="currentColor"
+                style={{ width: '15px', height: '15px' }}
+              >
+                {isMenuOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                )}
               </svg>
             </button>
           </div>
@@ -60,35 +81,53 @@ const Header = () => {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t border-[var(--blu-light)]">
+            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t border-gray-200">
               <Link 
                 href="/" 
-                className="text-[var(--text-primary)] hover:text-[var(--blu-primary)] block px-3 py-2 text-base font-medium transition-colors"
-                onClick={() => setIsMenuOpen(false)}
+                className="block px-3 py-2 rounded-md text-base font-medium text-[#1a1a1a] hover:text-[#e74c3c] hover:bg-gray-50 transition-colors duration-200"
               >
                 Home
               </Link>
               <Link 
-                href="/why-blu" 
-                className="text-[var(--text-primary)] hover:text-[var(--blu-primary)] block px-3 py-2 text-base font-medium transition-colors"
-                onClick={() => setIsMenuOpen(false)}
+                href="/donate" 
+                className="block px-3 py-2 rounded-md text-base font-medium text-[#1a1a1a] hover:text-[#e74c3c] hover:bg-gray-50 transition-colors duration-200"
               >
-                Why Blu
+                Donate
               </Link>
               <Link 
-                href="/roadmap" 
-                className="text-[var(--text-primary)] hover:text-[var(--blu-primary)] block px-3 py-2 text-base font-medium transition-colors"
-                onClick={() => setIsMenuOpen(false)}
+                href="/donations" 
+                className="block px-3 py-2 rounded-md text-base font-medium text-[#1a1a1a] hover:text-[#e74c3c] hover:bg-gray-50 transition-colors duration-200"
               >
-                Roadmap
+                Donations
               </Link>
               <Link 
-                href="/login" 
-                className="bg-[var(--blu-primary)] text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-[var(--blu-secondary)] transition-colors"
-                onClick={() => setIsMenuOpen(false)}
+                href="/about" 
+                className="block px-3 py-2 rounded-md text-base font-medium text-[#1a1a1a] hover:text-[#e74c3c] hover:bg-gray-50 transition-colors duration-200"
               >
-                Download App
+                About
               </Link>
+              <Link 
+                href="/contact" 
+                className="block px-3 py-2 rounded-md text-base font-medium text-[#1a1a1a] hover:text-[#e74c3c] hover:bg-gray-50 transition-colors duration-200"
+              >
+                Contact
+              </Link>
+              <div className="pt-4">
+                <Link 
+                  href="/donate"
+                  className="inline-flex items-center w-full justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-[#e74c3c] hover:bg-[#c0392b] transition-colors duration-200"
+                >
+                  <svg 
+                    className="w-4 h-4 mr-2" 
+                    fill="currentColor" 
+                    viewBox="0 0 20 20"
+                    style={{ width: '15px', height: '15px' }}
+                  >
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                  Donate Now
+                </Link>
+              </div>
             </div>
           </div>
         )}

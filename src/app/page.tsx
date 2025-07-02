@@ -5,126 +5,136 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-[var(--blu-lightest)] to-[var(--blu-lighter)] py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Left Content */}
-            <div>
-              <h1 className="text-5xl lg:text-6xl font-bold text-[var(--text-primary)] mb-6">
-                Change a life{" "}
-                <span className="text-[var(--blu-primary)]">directly</span>
-              </h1>
-              <p className="text-xl text-[var(--text-secondary)] mb-8 leading-relaxed">
-                Blu connects donors directly with people in need through peer-to-peer donations. 
-                No intermediaries, maximum impact.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link 
-                  href="/login" 
-                  className="bg-[var(--blu-primary)] text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-[var(--blu-secondary)] transition-colors text-center"
-                >
-                  Download App
-                </Link>
-                <Link 
-                  href="/why-blu" 
-                  className="border-2 border-[var(--blu-primary)] text-[var(--blu-primary)] px-8 py-4 rounded-lg text-lg font-semibold hover:bg-[var(--blu-lightest)] transition-colors text-center"
-                >
-                  Learn More
-                </Link>
-              </div>
-              <p className="text-sm text-[var(--text-muted)] mt-4">
-                Change a life directly
-              </p>
-            </div>
-            
-            {/* Right Content - Hero Image */}
-            <div className="flex justify-center lg:justify-end">
-              <div className="relative w-full max-w-md">
-                <div className="bg-white rounded-2xl shadow-xl p-6">
-                  <div className="text-center">
-                    <div className="w-12 h-12 bg-[var(--blu-lightest)] rounded-lg flex items-center justify-center mx-auto mb-3">
-                      <svg className="w-6 h-6 text-[var(--blu-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                      </svg>
-                    </div>
-                    <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-2">Direct Impact</h3>
-                    <p className="text-sm text-[var(--text-secondary)]">Your donation goes directly to those who need it most</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+      <section className="bg-gradient-to-br from-[#e74c3c] to-[#c0392b] text-white py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            Better Lives United
+          </h1>
+          <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
+            Empowering communities through technology and compassion. 
+            Join us in making a difference in people's lives.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link 
+              href="/donate"
+              className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-lg font-medium rounded-md text-[#e74c3c] bg-white hover:bg-gray-100 transition-colors duration-200"
+            >
+              <svg 
+                className="w-5 h-5 mr-2" 
+                fill="currentColor" 
+                viewBox="0 0 20 20"
+                style={{ width: '15px', height: '15px' }}
+              >
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+              Donate Now
+            </Link>
+            <Link 
+              href="/about"
+              className="inline-flex items-center justify-center px-8 py-3 border-2 border-white text-lg font-medium rounded-md text-white hover:bg-white hover:text-[#e74c3c] transition-colors duration-200"
+            >
+              Learn More
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Why Blu Works Section */}
+      {/* Features Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-[var(--text-primary)] mb-4">Why Blu Works</h2>
-            <p className="text-xl text-[var(--text-secondary)] max-w-3xl mx-auto">
-              Our platform is designed for maximum transparency and impact
+            <h2 className="text-3xl md:text-4xl font-bold text-[#1a1a1a] mb-4">
+              How We Help
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Our platform connects donors directly with those in need, 
+              ensuring transparency and maximum impact for every donation.
             </p>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Feature 1 */}
             <div className="text-center">
-              <div className="w-10 h-10 bg-[var(--blu-lightest)] rounded-lg flex items-center justify-center mx-auto mb-3">
-                <svg className="w-5 h-5 text-[var(--blu-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-[#e74c3c] rounded-full mb-6">
+                <svg 
+                  className="w-8 h-8 text-white" 
+                  fill="currentColor" 
+                  viewBox="0 0 20 20"
+                  style={{ width: '15px', height: '15px' }}
+                >
+                  <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
                 </svg>
               </div>
-              <h3 className="text-base font-semibold text-[var(--text-primary)] mb-2">Peer-to-Peer</h3>
-              <p className="text-sm text-[var(--text-secondary)]">Direct connection between donors and recipients</p>
+              <h3 className="text-xl font-semibold text-[#1a1a1a] mb-4">Direct Impact</h3>
+              <p className="text-gray-600">
+                Your donations go directly to those who need them most, 
+                with full transparency and tracking.
+              </p>
             </div>
-            
+
+            {/* Feature 2 */}
             <div className="text-center">
-              <div className="w-10 h-10 bg-[var(--blu-warm)] rounded-lg flex items-center justify-center mx-auto mb-3">
-                <svg className="w-5 h-5 text-[var(--blu-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-[#e74c3c] rounded-full mb-6">
+                <svg 
+                  className="w-8 h-8 text-white" 
+                  fill="currentColor" 
+                  viewBox="0 0 20 20"
+                  style={{ width: '15px', height: '15px' }}
+                >
+                  <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
               </div>
-              <h3 className="text-base font-semibold text-[var(--text-primary)] mb-2">High Impact</h3>
-              <p className="text-sm text-[var(--text-secondary)]">Maximum impact with minimal overhead</p>
+              <h3 className="text-xl font-semibold text-[#1a1a1a] mb-4">Secure & Transparent</h3>
+              <p className="text-gray-600">
+                Advanced security measures ensure your donations are safe 
+                and every transaction is transparent.
+              </p>
             </div>
-            
+
+            {/* Feature 3 */}
             <div className="text-center">
-              <div className="w-10 h-10 bg-[var(--blu-light)] rounded-lg flex items-center justify-center mx-auto mb-3">
-                <svg className="w-5 h-5 text-[var(--blu-secondary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-[#e74c3c] rounded-full mb-6">
+                <svg 
+                  className="w-8 h-8 text-white" 
+                  fill="currentColor" 
+                  viewBox="0 0 20 20"
+                  style={{ width: '15px', height: '15px' }}
+                >
+                  <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z" />
                 </svg>
               </div>
-              <h3 className="text-base font-semibold text-[var(--text-primary)] mb-2">Blockchain</h3>
-              <p className="text-sm text-[var(--text-secondary)]">Secure and transparent transactions</p>
-            </div>
-            
-            <div className="text-center">
-              <div className="w-10 h-10 bg-[var(--blu-lighter)] rounded-lg flex items-center justify-center mx-auto mb-3">
-                <svg className="w-5 h-5 text-[var(--blu-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <h3 className="text-base font-semibold text-[var(--text-primary)] mb-2">Global</h3>
-              <p className="text-sm text-[var(--text-secondary)]">Reach people worldwide</p>
+              <h3 className="text-xl font-semibold text-[#1a1a1a] mb-4">Community Support</h3>
+              <p className="text-gray-600">
+                Join a global community of donors making real change 
+                in people's lives around the world.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="bg-[var(--blu-primary)] py-16">
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">
-            Ready to make a difference?
+          <h2 className="text-3xl md:text-4xl font-bold text-[#1a1a1a] mb-4">
+            Ready to Make a Difference?
           </h2>
-          <p className="text-xl text-[var(--blu-light)] mb-8">
-            Join thousands of donors making direct impact
+          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+            Every donation counts. Start making a positive impact in someone's life today.
           </p>
           <Link 
-            href="/login" 
-            className="bg-white text-[var(--blu-primary)] px-8 py-4 rounded-lg text-lg font-semibold hover:bg-[var(--blu-lightest)] transition-colors inline-block"
+            href="/donate"
+            className="inline-flex items-center px-8 py-3 border border-transparent text-lg font-medium rounded-md text-white bg-[#e74c3c] hover:bg-[#c0392b] transition-colors duration-200"
           >
-            Get Started Today
+            <svg 
+              className="w-5 h-5 mr-2" 
+              fill="currentColor" 
+              viewBox="0 0 20 20"
+              style={{ width: '15px', height: '15px' }}
+            >
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+            </svg>
+            Start Donating
           </Link>
         </div>
       </section>
