@@ -1,17 +1,53 @@
 // Homepage last updated: forced redeploy
-import Image from 'next/image';
+import Link from 'next/link';
+import SwipeCard from '../components/SwipeCard';
+import '../app/globals.css';
+
+const mockUsers = [
+  {
+    name: 'Maria',
+    requested_help: 'Single mother affected by hurricane',
+    image: '/images/v_1.jpg',
+  },
+  {
+    name: 'Adeel',
+    requested_help: 'Lost home due to war in Gaza',
+    image: '/images/v_2.jpeg',
+  },
+  {
+    name: 'Sophia',
+    requested_help: 'Disabled and struggling with bills',
+    image: '/images/v_3.png',
+  },
+];
 
 export default function Home() {
   return (
-    <section className="flex flex-col items-center justify-center text-center mt-20">
-      <h1 className="text-4xl font-bold mb-4">Welcome to Blu 💙</h1>
-      <p className="text-lg text-gray-300 max-w-xl">
-        Peer-to-peer micro-donations that change lives.
-      </p>
-      <div className="mt-8 space-x-4">
-        <a href="/login" className="bg-blue-600 px-4 py-2 rounded hover:bg-blue-700">Login</a>
-        <a href="/register" className="bg-green-600 px-4 py-2 rounded hover:bg-green-700">Register</a>
-      </div>
-    </section>
+    <div className="min-h-screen bg-black text-white p-6">
+      <header className="flex justify-between items-center mb-8">
+        <h1 className="text-3xl font-bold">Blu 💙</h1>
+        <nav className="space-x-4">
+          <Link href="/login">Login</Link>
+          <Link href="/register">Register</Link>
+          <Link href="/donate">Donate</Link>
+          <Link href="/donations">Donation History</Link>
+        </nav>
+      </header>
+
+      <main className="flex flex-col items-center">
+        <h2 className="text-2xl font-semibold mb-4">Swipe to Give</h2>
+        <div className="w-full max-w-md">
+          {mockUsers.map((user, index) => (
+            <SwipeCard
+              key={index}
+              recipient={user}
+              onSwipeLeft={() => {}}
+              onSwipeRight={() => {}}
+              isExiting={false}
+            />
+          ))}
+        </div>
+      </main>
+    </div>
   );
 }

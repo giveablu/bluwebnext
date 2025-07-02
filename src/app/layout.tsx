@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Image from 'next/image';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,17 +25,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="bg-black text-white font-sans">
-        <header className="p-4 flex justify-between items-center">
-          <div className="text-2xl font-bold">Blu</div>
-          <nav className="space-x-4">
-            <a href="/login">Login</a>
-            <a href="/register">Register</a>
-            <a href="/donate">Donate</a>
-            <a href="/donations">Donation History</a>
+      <body className="bg-black text-white font-sans min-h-screen flex flex-col">
+        <header className="w-full flex justify-between items-center px-8 py-6 bg-black">
+          <div className="flex items-center space-x-4">
+            <Image src="/images/logo.png" alt="Blu Logo" width={120} height={40} />
+            <span className="text-2xl font-bold">Blu</span>
+          </div>
+          <nav className="flex space-x-6 text-lg font-medium">
+            <a href="/login" className="hover:underline">Login</a>
+            <a href="/register" className="hover:underline">Register</a>
+            <a href="/donate" className="hover:underline">Donate</a>
+            <a href="/donations" className="hover:underline">Donation History</a>
           </nav>
         </header>
-        <main className="p-4">{children}</main>
+        <main className="flex-1 flex flex-col items-center justify-center w-full px-4">
+          {children}
+        </main>
       </body>
     </html>
   );
